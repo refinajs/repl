@@ -93,6 +93,6 @@
     "vue-tsc": "1.9.0-alpha.3"
   },
   "dependencies": {
-    "@refina/transformer": "link:..\\..\\refina\\packages\\transformer"
+    "@refina/transformer": "latest"
   }
 }

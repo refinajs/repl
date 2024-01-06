@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@refina/transformer':
-    specifier: link:..\..\refina\packages\transformer
-    version: link:../../refina/packages/transformer
+    specifier: latest
+    version: 0.2.0
 
 devDependencies:
   '@babel/types':
@@ -400,7 +400,6 @@ packages:
 
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
-    dev: true
 
   /@jridgewell/trace-mapping@0.3.20:
     resolution: {integrity: sha512-R8LcPeWZol2zR8mmH3JeKQ6QRCFb7XgUhV9ZlGhHLGyg4wpPiPZNQOOWhFZhxKw8u//yTbNGI42Bx/3paXEQ+Q==}
@@ -489,6 +488,12 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@refina/transformer@0.2.0:
+    resolution: {integrity: sha512-Y6eXPMJSmFzTMZFxYg4+U8fA8i/zY7aSddkM9IfdUrcqIEc6H7jERmU2cup2jh1F1eDlQgbEQD9bcoWjSvS/ag==}
+    dependencies:
+      magic-string: 0.30.5
+    dev: false
 
   /@rollup/plugin-replace@5.0.5:
     resolution: {integrity: sha512-rYO4fOi8lMaTg/z5Jb+hKnrHHVn8j2lwkqwyS4kTRhKyWOLf2wST2sWXr4WzWiTcoHTp2sTjqUbqIj2E39slKQ==}
@@ -1957,7 +1962,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
 
   /meow@12.1.1:
     resolution: {integrity: sha512-BhXM0Au22RwUneMPwSCnyhTOizdWoIEPU9sp0Aqa1PnDMR5Wv2FGXYDjuzJEIX+Eo2Rb8xuYe5jrnm5QowQFkw==}
