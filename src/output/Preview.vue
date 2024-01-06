@@ -225,7 +225,7 @@ async function updatePreview() {
       `window.__modules__ = {};window.__css__ = [];` +
         `if (window.__app__) window.__app__.unmount();` +
         (isSSR
-          ? ``
+          ? `document.body.innerHTML = '<div id="root"></div>'`
           : `document.body.innerHTML = '<div id="app"></div>' + \`${
               previewOptions?.bodyHTML || ''
             }\``),

@@ -170,5 +170,5 @@ export function loadMonacoEnv(store: Store) {
   languages.register({ id: 'typescript', extensions: ['.ts'] })
 
   store.reloadLanguageTools = () => reloadLanguageTools(store)
-  languages.onLanguage('vue', () => store.reloadLanguageTools!())
+  languages.onLanguage('typescript', () => store.reloadLanguageTools!())
 }

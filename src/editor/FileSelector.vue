@@ -14,7 +14,7 @@ const pending = ref<boolean | string>(false)
  * Text shown in the input box when editing a file's name
  * This is a display name so it should always strip off the `src/` prefix.
  */
-const pendingFilename = ref('Comp.vue')
+const pendingFilename = ref('View.ts')
 const showTsConfig = inject<Ref<boolean>>('tsconfig')
 const showImportMap = inject<Ref<boolean>>('import-map')
 const files = computed(() =>
@@ -28,14 +28,14 @@ const files = computed(() =>
 
 function startAddFile() {
   let i = 0
-  let name = `Comp.vue`
+  let name = `View.ts`
 
   while (true) {
     let hasConflict = false
     for (const filename in store.state.files) {
       if (stripSrcPrefix(filename) === name) {
         hasConflict = true
-        name = `Comp${++i}.vue`
+        name = `View${++i}.ts`
         break
       }
     }

@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  '@refina/transformer':
+    specifier: link:..\..\refina\packages\transformer
+    version: link:../../refina/packages/transformer
+
 devDependencies:
   '@babel/types':
     specifier: ^7.23.6

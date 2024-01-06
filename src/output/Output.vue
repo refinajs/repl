@@ -15,7 +15,7 @@ const store = inject('store') as Store
 const previewRef = ref<InstanceType<typeof Preview>>()
 const modes = computed(() =>
   props.showCompileOutput
-    ? (['preview', 'js', 'css', 'ssr'] as const)
+    ? (['preview', 'js'] as const)
     : (['preview'] as const)
 )
 
@@ -39,7 +39,7 @@ defineExpose({ reload })
       :class="{ active: mode === m }"
       @click="mode = m"
     >
-      <span>{{ m }}</span>
+      <span>{{ m === 'js' ? 'ts' : m }}</span>
     </button>
   </div>
 

@@ -1,0 +1,5 @@
+import { $view } from 'refina'
+
+export default $view(_ => {
+  _.h1('Hello from View.');
+});

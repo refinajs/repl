@@ -1,5 +1,5 @@
 import { version, reactive, watchEffect, watch } from 'vue'
-import * as defaultCompiler from 'vue/compiler-sfc'
+import { transformFragment as defaultCompiler } from '@refina/transformer'
 import { compileFile } from './transform'
 import { utoa, atou } from './utils'
 import {
@@ -9,10 +9,10 @@ import {
 } from 'vue/compiler-sfc'
 import { OutputModes } from './output/types'
 import type { editor } from 'monaco-editor-core'
-import welcomeCode from './template/welcome.vue?raw'
-import newSFCCode from './template/new-sfc.vue?raw'
+import welcomeCode from './template/new-app.txt?raw'
+import newSFCCode from './template/new-view.txt?raw'
 
-const defaultMainFile = 'src/App.vue'
+const defaultMainFile = 'src/App.ts'
 
 export const importMapFile = 'import-map.json'
 export const tsconfigFile = 'tsconfig.json'
@@ -21,11 +21,13 @@ const tsconfig = {
   compilerOptions: {
     allowJs: true,
     checkJs: true,
-    jsx: 'Preserve',
     target: 'ESNext',
     module: 'ESNext',
     moduleResolution: 'Bundler',
     allowImportingTsExtensions: true,
+    lib: ['ESNext', 'DOM', 'DOM.Iterable'],
+    strictPropertyInitialization: false,
+    experimentalDecorators: true,
   },
   vueCompilerOptions: {
     target: 3.3,
@@ -258,7 +260,7 @@ export class ReplStore implements Store {
     if (typeof fileOrFilename === 'string') {
       file = new File(
         fileOrFilename,
-        fileOrFilename.endsWith('.vue') ? this.newSFCTemplate : ''
+        fileOrFilename.match(/view.*\.[tj]s$/i) ? this.newSFCTemplate : ''
       )
     } else {
       file = fileOrFilename
@@ -376,8 +378,16 @@ export class ReplStore implements Store {
         JSON.stringify(
           {
             imports: {
+              /*
               vue: this.defaultVueRuntimeURL,
               'vue/server-renderer': this.defaultVueServerRendererURL,
+              */
+              refina:
+                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/core.min.js',
+              '@refina/basic-components':
+                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/basic-components.min.js',
+              '@refina/mdui':
+                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/mdui.min.js',
             },
           },
           null,

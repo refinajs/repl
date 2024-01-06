@@ -1,1 +1,1 @@
-export type OutputModes = 'preview' | 'js' | 'css' | 'ssr'
+export type OutputModes = 'preview' | 'js'
