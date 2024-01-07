@@ -210,7 +210,7 @@ export class ReplStore implements Store {
 
     watch(
       () => [
-        this.state.files[tsconfigFile]?.code,
+        // this.state.files[tsconfigFile]?.code,
         this.state.typescriptVersion,
         this.state.typescriptLocale,
         this.state.locale,
