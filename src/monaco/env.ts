@@ -134,6 +134,8 @@ export async function reloadLanguageTools(store: Store) {
     disposeAutoInsertion()
     disposeProvides()
   }
+  
+  import('./format').then((r) => r.registerFormatter())
 }
 
 export interface WorkerMessage {
