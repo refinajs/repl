@@ -20,7 +20,7 @@ const props = defineProps<{ show: boolean; ssr: boolean }>()
 
 const store = inject('store') as Store
 const clearConsole = inject('clear-console') as Ref<boolean>
-const theme = inject('theme') as Ref<'dark' | 'light'>
+const theme = ref('light')
 
 const previewOptions = inject('preview-options') as Props['previewOptions']
 

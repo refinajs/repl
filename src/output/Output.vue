@@ -39,7 +39,7 @@ defineExpose({ reload })
       :class="{ active: mode === m }"
       @click="mode = m"
     >
-      <span>{{ m === 'js' ? 'ts' : m }}</span>
+      <span>{{ m }}</span>
     </button>
   </div>
 
