@@ -55,7 +55,12 @@ onMounted(async () => {
     ...(props.readonly
       ? { value: props.value, language: lang.value }
       : { model: null }),
-    fontSize: 13,
+    fontSize: 14,
+    lineNumbersMinChars: 3,
+    lineDecorationsWidth: 0,
+    padding: {
+      top: 8,
+    },
     tabSize: 2,
     theme: replTheme.value === 'light' ? theme.light : theme.dark,
     readOnly: props.readonly,
