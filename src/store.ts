@@ -383,11 +383,11 @@ export class ReplStore implements Store {
               'vue/server-renderer': this.defaultVueServerRendererURL,
               */
               refina:
-                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/core.min.js',
+                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/core.js',
               '@refina/basic-components':
-                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/basic-components.min.js',
+                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/basic-components.js',
               '@refina/mdui':
-                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/mdui.min.js',
+                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/mdui.js',
             },
           },
           null,
