@@ -1,6 +1,6 @@
 {
   "name": "@refina/repl",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Refina REPL as a Vue 3 component",
   "packageManager": "pnpm@8.14.0",
   "type": "module",

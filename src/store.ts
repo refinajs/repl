@@ -371,24 +371,26 @@ export class ReplStore implements Store {
   }
 
   private initImportMap() {
+    const refinaImportMap = {
+      /*
+      vue: this.defaultVueRuntimeURL,
+      'vue/server-renderer': this.defaultVueServerRendererURL,
+      */
+      refina:
+        'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/core.js',
+      '@refina/basic-components':
+        'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/basic-components.js',
+      '@refina/mdui':
+        'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/mdui.js',
+    }
+
     const map = this.state.files[importMapFile]
     if (!map) {
       this.state.files[importMapFile] = new File(
         importMapFile,
         JSON.stringify(
           {
-            imports: {
-              /*
-              vue: this.defaultVueRuntimeURL,
-              'vue/server-renderer': this.defaultVueServerRendererURL,
-              */
-              refina:
-                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/core.js',
-              '@refina/basic-components':
-                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/basic-components.js',
-              '@refina/mdui':
-                'https://cdn.jsdelivr.net/npm/@refina/bundles@latest/dist/mdui.js',
-            },
+            imports: refinaImportMap,
           },
           null,
           2
@@ -397,18 +399,7 @@ export class ReplStore implements Store {
     } else {
       try {
         const json = JSON.parse(map.code)
-        if (!json.imports.vue) {
-          json.imports.vue = this.defaultVueRuntimeURL
-        } else {
-          json.imports.vue = fixURL(json.imports.vue)
-        }
-        if (!json.imports['vue/server-renderer']) {
-          json.imports['vue/server-renderer'] = this.defaultVueServerRendererURL
-        } else {
-          json.imports['vue/server-renderer'] = fixURL(
-            json.imports['vue/server-renderer']
-          )
-        }
+        json.imports = { ...refinaImportMap, ...json.imports }
         map.code = JSON.stringify(json, null, 2)
       } catch (e) {}
     }
