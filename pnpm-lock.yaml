@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@refina/transformer':
-    specifier: latest
-    version: 0.2.0
+    specifier: ^0.3.0
+    version: 0.3.0
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -489,8 +489,8 @@ packages:
     dev: true
     optional: true
 
-  /@refina/transformer@0.2.0:
-    resolution: {integrity: sha512-Y6eXPMJSmFzTMZFxYg4+U8fA8i/zY7aSddkM9IfdUrcqIEc6H7jERmU2cup2jh1F1eDlQgbEQD9bcoWjSvS/ag==}
+  /@refina/transformer@0.3.0:
+    resolution: {integrity: sha512-kE6IEU3EJeNa9GHyobhygnOFO3w0/Y7T8GnBAnIg1jhKV+GCxX1UYKaUoMDPw6npnIQqaW/lUrkx4Rdl35hizQ==}
     dependencies:
       magic-string: 0.30.5
     dev: false
