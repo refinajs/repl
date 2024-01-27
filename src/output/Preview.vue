@@ -203,7 +203,7 @@ async function updatePreview() {
          }
          app.config.warnHandler = () => {}
          window.__ssr_promise__ = _renderToString(app).then(html => {
-           document.body.innerHTML = '<div id="root">' + html + '</div>' + \`${
+           document.body.innerHTML = '<div id="app">' + html + '</div>' + \`${
              previewOptions?.bodyHTML || ''
            }\`
          }).catch(err => {
@@ -225,8 +225,8 @@ async function updatePreview() {
       `window.__modules__ = {};window.__css__ = [];` +
         `if (window.__app__) window.__app__.unmount();` +
         (isSSR
-          ? `document.body.innerHTML = '<div id="root"></div>'`
-          : `document.body.innerHTML = '<div id="root"></div>' + \`${
+          ? `document.body.innerHTML = '<div id="app"></div>'`
+          : `document.body.innerHTML = '<div id="app"></div>' + \`${
               previewOptions?.bodyHTML || ''
             }\``),
       ...modules,
